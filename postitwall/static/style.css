@@ -1,0 +1,92 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: white;
+}
+
+h1 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fcfcfc;
+}
+
+th, td {
+    width: 33%;
+    vertical-align: top;
+    padding: 0.5em;
+    border-left: 1px solid #eee;
+}
+
+th.status-new {
+    background-color: #fee;
+    border-bottom: 2px solid #c44;
+}
+
+th.status-started {
+    background-color: #ffe;
+    border-bottom: 2px solid #cc4;
+}
+
+th.status-done {
+    background-color: #efe;
+    border-bottom: 2px solid #484;
+}
+
+th:first-child {
+    border-left: none;
+}
+
+th, td {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+th div {
+    line-height: 2em;
+}
+
+div.task-description {
+    font-size: 80%;
+    border-top: 1px solid #ccc;
+    margin-top: 0.2em;
+    padding-top: 0.2em;
+}
+
+div.task-description pre {
+    white-space: pre-wrap;
+}
+
+table ul {
+    list-style: none;
+}
+
+table li {
+    border: 1px solid #aab;
+    background-color: #f8f8f8;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 5px;
+}
+
+table li:last-child {
+    margin-bottom: 0;
+}
+
+.task-id {
+    color: #aaa;
+    float: right;
+}
+
+.task-id:before {
+    content: '#';
+    padding-left: 0.5em;
+}

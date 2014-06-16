@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for board in board_lst %}
+<section>
+<h1>{{ board.name }}</h1>
+<table class='board'>
+<tr>
+    <th class='status-new'><div>New</div></th>
+    <th class='status-started'><div>Started</div></th>
+    <th class='status-done'><div>Done</div></th>
+</tr>
+<tr>
+{% for status in 'new', 'started', 'done' %}
+    <td class='status-{{ status }}'>
+        <ul>
+        {% for task in board.tasks[status] %}
+            <li>
+                <div><span class='task-id'>{{task.id }}</span>{{ task.title|urlize }}</div>
+                {% if task.description %}<div class='task-description'>{{ task.description|md2html }}</div>{% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    </td>
+{% endfor %}
+</tr>
+</table>
+</section>
+{% endfor %}
+
+{% endblock %} {# content #}
