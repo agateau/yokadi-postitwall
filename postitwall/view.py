@@ -4,7 +4,7 @@ from __future__ import division, absolute_import, print_function, unicode_litera
 import markdown
 
 from flask import Flask, render_template, redirect
-from jinja2 import evalcontextfilter, Markup
+from jinja2 import Markup
 
 from board import Board
 import settings
