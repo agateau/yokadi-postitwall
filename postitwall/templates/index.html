@@ -1,31 +1,44 @@
 {% extends "base.html" %}
 
+{% macro render_tasks(tasks) %}
+<ul>
+{% for task in tasks %}
+    <li>
+        <div><span class='task-id'>{{task.id }}</span>{{ task.title|urlize }}</div>
+        {% if task.description %}<div class='task-description'>{{ task.description|md2html }}</div>{% endif %}
+    </li>
+{% endfor %}
+</ul>
+{% endmacro %}
+
 {% block content %}
 
-{% for board in board_lst %}
+{% for board_info in board_info_list %}
 <section>
-<h1>{{ board.name }}</h1>
-<table class='board'>
-<tr>
-    <th class='status-new'><div>New</div></th>
-    <th class='status-started'><div>Started</div></th>
-    <th class='status-done'><div>Done</div></th>
-</tr>
-<tr>
-{% for status in 'new', 'started', 'done' %}
-    <td class='status-{{ status }}'>
-        <ul>
-        {% for task in board.tasks[status] %}
-            <li>
-                <div><span class='task-id'>{{task.id }}</span>{{ task.title|urlize }}</div>
-                {% if task.description %}<div class='task-description'>{{ task.description|md2html }}</div>{% endif %}
-            </li>
+    <h1>{{ board_info.name }}</h1>
+    <table class='board'>
+        <tr>
+            <th class='status-new'><div>New</div></th>
+            <th class='status-started'><div>Started</div></th>
+            <th class='status-done'><div>Done</div></th>
+        </tr>
+        <tr>
+        {% for status in 'new', 'started', 'done' %}
+            <td class='status-{{ status }}'>
+                {% if board_info.project_info_list[1] is defined %}
+                    {% for project_info in board_info.project_info_list %}
+                        {% if project_info.tasks[status] %}
+                            <h2>{{ project_info.name }}</h2>
+                            {{ render_tasks(project_info.tasks[status]) }}
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    {{ render_tasks(board_info.project_info_list[0].tasks[status]) }}
+                {% endif %}
+            </td>
         {% endfor %}
-        </ul>
-    </td>
-{% endfor %}
-</tr>
-</table>
+        </tr>
+    </table>
 </section>
 {% endfor %}
 

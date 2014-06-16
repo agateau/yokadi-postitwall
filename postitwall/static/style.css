@@ -13,6 +13,17 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 110%;
+    font-weight: normal;
+}
+
+h2:first-child {
+    margin-top: 0;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
