@@ -7,13 +7,13 @@ body {
     background-color: white;
 }
 
-h1 {
+h1.board-name {
     margin-top: 1em;
     margin-bottom: 0.5em;
     text-align: center;
 }
 
-h2 {
+h2.project-name {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     font-size: 110%;
@@ -76,11 +76,11 @@ div.task-description pre {
     white-space: pre-wrap;
 }
 
-table ul {
+ul.tasks {
     list-style: none;
 }
 
-table li {
+ul.tasks > li {
     border: 1px solid #aab;
     background-color: #f8f8f8;
     padding: 0.5em;
@@ -88,7 +88,7 @@ table li {
     border-radius: 5px;
 }
 
-table li:last-child {
+ul.tasks > li:last-child {
     margin-bottom: 0;
 }
 
@@ -100,4 +100,21 @@ table li:last-child {
 .task-id:before {
     content: '#';
     padding-left: 0.5em;
+}
+
+div.task-description ul {
+    padding-left: 1em;
+    list-style: disc;
+}
+
+div.task-description h1 {
+    font-size: 130%;
+}
+
+div.task-description h2 {
+    font-size: 120%;
+}
+
+div.task-description h3 {
+    font-size: 130%;
 }

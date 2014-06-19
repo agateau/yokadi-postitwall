@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% macro render_tasks(tasks) %}
-<ul>
+<ul class='tasks'>
 {% for task in tasks %}
     <li>
         <div><span class='task-id'>{{task.id }}</span>{{ task.title|urlize }}</div>
@@ -15,7 +15,7 @@
 
 {% for board_info in board_info_list %}
 <section>
-    <h1>{{ board_info.name }}</h1>
+    <h1 class='board-name'>{{ board_info.name }}</h1>
     <table class='board'>
         <tr>
             <th class='status-new'><div>New</div></th>
@@ -28,7 +28,7 @@
                 {% if board_info.project_info_list[1] is defined %}
                     {% for project_info in board_info.project_info_list %}
                         {% if project_info.tasks[status] %}
-                            <h2>{{ project_info.name }}</h2>
+                            <h2 class='project-name'>{{ project_info.name }}</h2>
                             {{ render_tasks(project_info.tasks[status]) }}
                         {% endif %}
                     {% endfor %}
